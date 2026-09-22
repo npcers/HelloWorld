@@ -100,7 +100,7 @@ class MainActivity : ComponentActivity() {
         if (url.isBlank()) return
         isLoading = true
         lifecycleScope.launch {
-            val result = ArticleExtractor.extractFromUrl(url)
+            val result = ArticleExtractor.extractWithWebView(applicationContext, url)
             isLoading = false
             result.onSuccess { article ->
                 articles.add(0, article)
